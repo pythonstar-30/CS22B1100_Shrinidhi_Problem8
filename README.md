@@ -21,8 +21,8 @@ This project is a Python-based API built with FastAPI that uses Optical Characte
 
 2.  **Clone the Repository:**
     ```bash
-    git clone <your-repository-url>
-    cd <your-repository-name>
+    git clone <https://github.com/pythonstar-30/CS22B1100_Shrinidhi_Problem8>
+    cd <CS22B1100_Shrinidhi_Problem8>
     ```
 
 3.  **Install Dependencies:**
