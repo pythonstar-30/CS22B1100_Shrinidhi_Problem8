@@ -1,0 +1,8 @@
+# --- FastAPI Web Framework ---
+fastapi
+uvicorn[standard]
+python-multipart
+
+# --- AI & Machine Learning ---
+easyocr
+langchain-ollama
