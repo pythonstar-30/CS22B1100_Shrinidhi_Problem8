@@ -54,4 +54,21 @@ This endpoint accepts an image file and returns a structured JSON of the amounts
 
 #### **Example using `curl`:**
 ```bash
-curl -X POST -F "file=@/path/to/your/invoice.png" "[http://127.0.0.1:8000/process-image/](http://127.0.0.1:8000/process-image/)"
+curl -X POST -F "file=@/path/to/your/invoice.png" "http://127.0.0.1:8000/process-image/"
+
+```
+### **2. Process an invoice text**
+This endpoint accepts a JSON object with raw text and returns the same structured JSON output.
+
+
+* **URL:** `/process-text/`
+* **Method:** `POST`
+* **Body:** `raw (JSON)`
+
+#### **Example using `curl`:**
+```bash
+curl -X POST -H "Content-Type: application/json" \
+-d '{"text": "The subtotal is $50.00 and the tax is $5.00, making the total amount $55.00"}' \
+"http://127.0.0.1:8000/process-text/"
+
+```
