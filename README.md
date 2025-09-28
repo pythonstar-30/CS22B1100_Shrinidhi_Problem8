@@ -70,5 +70,44 @@ This endpoint accepts a JSON object with raw text and returns the same structure
 curl -X POST -H "Content-Type: application/json" \
 -d '{"text": "The subtotal is $50.00 and the tax is $5.00, making the total amount $55.00"}' \
 "http://127.0.0.1:8000/process-text/"
-
 ```
+
+The system follows a clear, step-by-step process to transform raw invoice data into structured, labeled information.
+```
+                  +--------------------------+
+                  |  1. Input (Image/Text)   |
+                  +--------------------------+
+                            |
+                            ▼
+                  +--------------------------+
+                  | 2. FastAPI Endpoint      |
+                  | (/process-image or 
+                     /process-text)          |
+                  +--------------------------+
+                            |
++---------------------------+---------------------------+
+|      (For Images)         |       (For Text)          |
+|           ▼               |           ▼               |
+| +-----------------------+ | +-----------------------+ |
+| | 3a. OCR with EasyOCR  | | | 3b. Text Parsing      | |
+| +-----------------------+ | +-----------------------+ |
++---------------------------+---------------------------+
+                            |
+                            ▼
+                  +--------------------------+
+                  | 4. Contextual Pairing    |
+                  | (Link amounts to nearby text) |
+                  +--------------------------+
+                            |
+                            ▼
+                  +--------------------------+
+                  | 5. LLM Labeling          |
+                  | (LangChain + Ollama phi3)  |
+                  +--------------------------+
+                            |
+                            ▼
+                  +--------------------------+
+                  |   6. Final JSON Output   |
+                  +--------------------------+
+```
+
