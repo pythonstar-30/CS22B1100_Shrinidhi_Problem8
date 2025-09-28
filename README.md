@@ -71,7 +71,7 @@ curl -X POST -H "Content-Type: application/json" \
 -d '{"text": "The subtotal is $50.00 and the tax is $5.00, making the total amount $55.00"}' \
 "http://127.0.0.1:8000/process-text/"
 ```
-
+#### **Architectural overview**
 The system follows a clear, step-by-step process to transform raw invoice data into structured, labeled information.
 ```
                   +--------------------------+
